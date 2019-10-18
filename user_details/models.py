@@ -17,10 +17,10 @@ class users(models.Model):
     sex = models.CharField(max_length=1)
     nationality = models.CharField(max_length=30)
     date_of_birth = models.DateField(max_length=8)
-    age = models.IntegerField()
+    #Below function is being used to calculate age as derived attribute
     def __str__(self):
         today = date.today()
-        delta = relativedelta(today, self.dob)
+        delta = relativedelta(today, self.date_of_birth)
         return str(delta.years)
 
     profile_picture = models.CharField(max_length=30)

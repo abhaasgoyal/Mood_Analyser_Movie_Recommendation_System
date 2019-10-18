@@ -6,10 +6,9 @@ class filmstars(models.Model):
     name = models.CharField(max_length = 10)
     movie_id = models.IntegerField(primary_key=True,validators = [MinValueValidator(0)])
     date_of_birth = models.DateField(max_length=8)
-    age = models.IntegerField()
     def __str__(self):
         today = date.today()
-        delta = relativedelta(today, self.dob)
+        delta = relativedelta(today, self.date_of_birth)
         return str(delta.years)
     died = models.DateField(max_length=8)
     sex = models.CharField(max_length=1)
