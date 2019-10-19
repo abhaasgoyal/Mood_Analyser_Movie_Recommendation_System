@@ -9,7 +9,6 @@ class movie_details(models.Model):
     rt_rating = models.IntegerField(validators = [MinValueValidator(0),MaxValueValidator(100)])
     metacritic_rating = models.IntegerField(validators = [MinValueValidator(0),MaxValueValidator(100)])
     genre = models.CharField(max_length=30)
-    image = models.CharField(max_length=30)
     release_date = models.DateField()
     total_episodes = models.IntegerField(validators = [MinValueValidator(0)])
     synopsis = models.TextField(max_length=30)
