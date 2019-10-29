@@ -1,6 +1,6 @@
 from django import forms
 from django.core import validators
-from user_details.models import login_credentials
+from user_details.models import login_credentials,users
 #if custom validation then specify the fields at '@'
 
 
@@ -8,23 +8,30 @@ from user_details.models import login_credentials
 
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 
 
+class User_Signup_Details(forms.ModelForm):
 
-
-
-
+    class Meta:
+        model = users
+        exclude = ['user_id']
+        widgets = {
+            'date_of_birth': DateInput()
+        }
 
 
 class User_Signup(forms.ModelForm):
     #'@'
     class Meta:
-        model = login_credentials
+        model = login_credentials;
         #option 1 is always fields = "_all"
         #option 2 is exclude exclude = ["field1","field2"]
         #option 3 is include fields = ("field1","field2")
-        fields = "__all__"
+        exclude = ['user_id']
+
 
 '''
 def check_for_z(value):
