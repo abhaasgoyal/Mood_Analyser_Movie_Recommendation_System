@@ -10,8 +10,12 @@
     <h1>Fill the form</h1>
     <div class="container">
         <form method="POST">
+<<<<<<< HEAD
           {{user_login_details.as_p}}
           {{user_personal_details.as_p}}
+=======
+          {{form.as_p}}
+>>>>>>> 1fb13a23158cfbfebf7d048472a13f64fdce5bf9
 
           <input type="submit" name="btn btn-primary" value="Submit">
           {% csrf_token %}
