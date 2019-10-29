@@ -12,3 +12,4 @@ class latest_news(models.Model):
     news_message = models.TextField(max_length=255)
     title = models.TextField(max_length=30)
     news_dt = models.DateTimeField()
+    news_image = models.ImageField(default='')

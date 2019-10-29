@@ -32,5 +32,5 @@ class users(models.Model):
         delta = relativedelta(today, self.date_of_birth)
         return str(delta.years)
 
-    profile_picture = models.CharField(max_length=30,default='blank.png')
+    profile_picture = models.ImageField(upload_to="user_images/",default='')
     about_user = models.TextField(max_length=30)

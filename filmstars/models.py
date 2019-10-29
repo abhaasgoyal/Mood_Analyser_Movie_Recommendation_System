@@ -13,5 +13,5 @@ class filmstars(models.Model):
     died = models.DateField(max_length=8)
     sex = models.CharField(max_length=1)
     years_active = models.IntegerField()
-    actor_image = models.CharField(max_length = 10)
+    actor_image = models.ImageField()
     synopsis = models.TextField(max_length=30)

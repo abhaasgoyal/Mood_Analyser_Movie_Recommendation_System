@@ -12,7 +12,7 @@ class forum_posts(models.Model):
     post_id = models.IntegerField(primary_key=True,default="",validators = [MinValueValidator(0)])
     post_message = models.TextField(max_length=255)
     title = models.TextField(max_length=30)
-    images = models.TextField(max_length=255)
+    images = models.ImageField()
 
     def publish(self):
         self.news_dt = timezone.now()
