@@ -1,6 +1,6 @@
 from django import forms
 from django.core import validators
-from user_details.models import login_credentials,users,User_Profile_Info
+from user_details.models import User_Profile_Info
 from django.contrib.auth.models import User
 #if custom validation then specify the fields at '@'
 
@@ -27,16 +27,6 @@ class User_Signup_Details(forms.ModelForm):
             'date_of_birth': DateInput()
         }
         exclude = ['user']
-
-
-class User_Signup(forms.ModelForm):
-    #'@'
-    class Meta:
-        model = login_credentials;
-        #option 1 is always fields = "_all"
-        #option 2 is exclude exclude = ["field1","field2"]
-        #option 3 is include fields = ("field1","field2")
-        exclude = ['user_id']
 
 
 '''
