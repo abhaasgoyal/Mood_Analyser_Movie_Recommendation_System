@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from user_details import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('filmstars/', include('filmstars.urls')),
@@ -25,8 +25,9 @@ urlpatterns = [
     path('movie_details/', include('movie_details.urls')),
     path('user_details/', include('user_details.urls')),
     path('forums/', include('forums.urls')),
-    path('latest_news', include('latest_news.urls'))
-
+    path('latest_news/', include('latest_news.urls')),
+    path('logout/',views.user_logout,name='logout'),
+    path('special/',views.special,name='special')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

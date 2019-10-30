@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Forms</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{% extends "general_information/base.html" %}
+{% block navbar %}
 
-  </head>
-  <body>
+
+
+
+{% if registered %}
+<h1>Thank you for registering</h1>
+{% else %}
+
     <h1>Fill the form</h1>
     <div class="container">
         <form enctype="multipart/form-data" method="POST">
@@ -18,5 +20,5 @@
         </form>
       </div>
 
-  </body>
-</html>
+{% endif %}
+      {% endblock %}

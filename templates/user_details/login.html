@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "general_information/base.html" %}
+{% block navbar %}
+
+<h1>Please Login</h1>
+<form action="{% url 'user_details:user_login' %}" method="post">
+  <label for="username">Username:</label>
+  <input type="text" name="username" placeholder="Enter Username">
+  <label for="password">Password</label>
+  <input type="password" name="password">
+  <input type="submit" name="" value="Login">
+  
+   {% csrf_token %}
+</form>
+{% endblock %}

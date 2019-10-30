@@ -1,6 +1,7 @@
 from django import forms
 from django.core import validators
-from user_details.models import login_credentials,users
+from user_details.models import login_credentials,users,User_Profile_Info
+from django.contrib.auth.models import User
 #if custom validation then specify the fields at '@'
 
 
@@ -11,16 +12,21 @@ from user_details.models import login_credentials,users
 class DateInput(forms.DateInput):
     input_type = 'date'
 
+class User_Form(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password', 'first_name', 'last_name')
 
 
 class User_Signup_Details(forms.ModelForm):
 
     class Meta:
-        model = users
-        exclude = ['user_id']
+        model = User_Profile_Info
         widgets = {
             'date_of_birth': DateInput()
         }
+        exclude = ['user']
 
 
 class User_Signup(forms.ModelForm):
