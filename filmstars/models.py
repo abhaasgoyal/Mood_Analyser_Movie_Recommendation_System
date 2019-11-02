@@ -6,7 +6,8 @@ class filmstars(models.Model):
     name = models.CharField(max_length = 10)
     movie_id = models.IntegerField(primary_key=True,validators = [MinValueValidator(0)])
     date_of_birth = models.DateField(max_length=8)
-    def __str__(self):
+    @property
+    def age(self):
         today = date.today()
         delta = relativedelta(today, self.date_of_birth)
         return str(delta.years)
