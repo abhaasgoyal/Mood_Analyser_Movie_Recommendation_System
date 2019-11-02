@@ -12,6 +12,7 @@
       <li> <a class= navbar-link href="{% url 'general_information:home_page' %}">Home</a></li>
         <li>  <a class= navbar-link href="{% url 'general_information:general_information_home' %}">General Information</a></li>
         <li>  <a class= navbar-link href="{% url 'latest_news:latest_news_home' %}">News</a></li>
+        <li>  <a class= navbar-link href="{% url 'filmstars:filmstars_list' %}">Actors</a>  </li>
         <li>  <a class= navbar-link href="{% url 'forums:forums_home' %}">Forums</a>  </li>
         <li> <a class= navbar-link href="{% url 'user_details:form_signup' %}">Registration</a> </li>
         {% if user.is_authenticated %}

@@ -16,4 +16,5 @@ class filmstars(models.Model):
     years_active = models.IntegerField()
     actor_image = models.ImageField()
     synopsis = models.TextField(max_length=30)
-# checksmall
+
+    
