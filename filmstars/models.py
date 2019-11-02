@@ -4,7 +4,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 class filmstars(models.Model):
     name = models.CharField(max_length = 10)
-    movie_id = models.IntegerField(primary_key=True,validators = [MinValueValidator(0)])
+    actor_id = models.IntegerField(primary_key=True,validators = [MinValueValidator(0)])
     date_of_birth = models.DateField(max_length=8)
     @property
     def age(self):

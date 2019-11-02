@@ -26,6 +26,13 @@
     <div class="container">
       {% block navbar %}
       <h1>Welcome to the home page</h1>
+      <form method="post">
+        <label for="mood">Search via mood:</label>
+        <input type="text" name="mood" placeholder="Tell us your mood">
+        <input type="submit" name="" value="Search">
+
+         {% csrf_token %}
+      </form>
       {% endblock %}
     </div>
 
