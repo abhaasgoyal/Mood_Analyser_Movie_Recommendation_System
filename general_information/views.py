@@ -23,5 +23,6 @@ def home(request):
         print(config.d['document_tone']['tones'][0]['tone_id'])
         return HttpResponseRedirect(reverse('movie_details:movie_mood_search'))
     elif request.method =='POST' and request.POST.get('movie_search')!=None:
+        config.search_string = request.POST.get('movie_search')
         return HttpResponseRedirect(reverse('movie_details:movie_normal_search'))
     return render(request,'general_information/base.html')
