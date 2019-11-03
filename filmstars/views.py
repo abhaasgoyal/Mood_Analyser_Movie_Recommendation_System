@@ -10,7 +10,12 @@ from . import models
 #
 
 class IndexView(TemplateView):
-    template_name= 'index.html'
+    template_name= 'filmstars/filmstar_home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['injectme'] = 'Welcome to actors!'
+        return context
 
 class ActorListView(ListView):
     context_object_name = 'filmstars'

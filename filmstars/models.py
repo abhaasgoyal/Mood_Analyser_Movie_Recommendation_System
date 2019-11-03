@@ -3,7 +3,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class filmstars(models.Model):
-    name = models.CharField(max_length = 10)
+    actor_name = models.CharField(max_length = 80)
     actor_id = models.IntegerField(primary_key=True,validators = [MinValueValidator(0)])
     date_of_birth = models.DateField(max_length=8)
     @property
@@ -11,10 +11,11 @@ class filmstars(models.Model):
         today = date.today()
         delta = relativedelta(today, self.date_of_birth)
         return str(delta.years)
-    died = models.DateField(max_length=8)
+    died = models.DateField(blank = True, null = True)
     sex = models.CharField(max_length=1)
     years_active = models.IntegerField()
     actor_image = models.ImageField()
     synopsis = models.TextField(max_length=30)
 
-    
+    def __str__(self):
+        return self.name

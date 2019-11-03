@@ -1,0 +1,15 @@
+{% extends "general_information/base.html" %}
+{% block navbar %}
+<h1>Welcome to Movie Details</h1>
+<h2>Movie Details:</h2>
+<p>Name : {{movies_detail.movie_name}}</p>
+<p>Imdb Rating: {{movies_detail.movie_name}}</p>
+<p>Rotten Tomatoes Rating: {{movies_detail.rt_rating}}</p>
+<p>Metacritic Rating: {{movies_detail.metacritic_rating}}</p>
+<p>Genre: {{movies_detail.genre}}</p>
+<p>Release Date: {{movies_detail.release_date}}</p>
+<p>Synopsis: {{movies_detail.synopsis}}</p>
+<p></p>
+
+<p>Movie Release Date: {{movies_detail.release_date}}</p>
+{% endblock %}
