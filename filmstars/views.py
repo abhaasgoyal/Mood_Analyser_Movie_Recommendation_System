@@ -20,9 +20,9 @@ class IndexView(TemplateView):
 class ActorListView(ListView):
     context_object_name = 'filmstars'
     model = models.filmstars
-    template_name = 'filmstars/filmstar_list.html'
+    template_name = 'filmstars/filmstars_list.html'
 
 class ActorDetailView(DetailView):
     context_object_name = 'filmstars_detail'
     model = models.filmstars
-    template_name = 'filmstars/filmstar_details.html'
+    template_name = 'filmstars/filmstars_details.html'

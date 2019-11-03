@@ -2,7 +2,7 @@
 {% block navbar %}
 <h1>Welcome to Movie List</h1>
 <ol>
-  {% for movie in filter %}
+  {% for movie in list %}
   <h2><li><a href="{{movie.movie_id}}">{{movie.movie_name}}</a></li></h2>
   {% endfor %}
 </ol>
