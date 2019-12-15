@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moodvies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="complete">
+        <nav>
+            <p> <img src="{% static images/logo.png %}" alt=""> </p>
+            <ul>
+                <li class="active">Home</li>
+                <li>General Info</li>
+                <li>Movies</li>
+                <li>News</li>
+                <li>Actors</li>
+                <li>Forums</li>
+                <li>Login</li>
+                <li>SignUp</li>
+            </ul>
+        </nav>
+
+        <header>
+            <h1>Find the
+                most suitable Contents
+                as per your Mood</h1>
+
+            <form action="" method="" class="moodsearch clearfix">
+                <div class="sf">
+                    <img class="mood-ico" src="mood.svg" alt="" srcset="">
+                    <input type="text" class="mood" placeholder="Search via Mood">
+                </div>
+                <button class="moods">Search</button>
+            </form>
+
+            <form action="" method="" class="moviesearch clearfix">
+                <div class="sf">
+                    <img class="mood-ico" src="tv.svg" alt="" srcset="">
+                    <input type="text" class="mood" placeholder="Search Movies">
+                </div>
+                <button class="movies">Search</button>
+            </form>
+        </header>
+
+</body>
+
+</html>

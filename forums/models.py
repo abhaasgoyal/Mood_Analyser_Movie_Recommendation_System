@@ -6,6 +6,11 @@ from datetime import datetime
 from django.utils import timezone
 # Create your models here.
 
+class Post(models.Model):
+    title= models.CharField(max_length=255, unique=True)
+    content= models.TextField()
+
+
 class forum_posts(models.Model):
     movie_id = models.ForeignKey(movie_details, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User_Profile_Info, on_delete=models.CASCADE)

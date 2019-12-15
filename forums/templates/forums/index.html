@@ -2,4 +2,21 @@
 {% extends "general_information/base.html" %}
 {% block navbar %}
     <h1>Welcome to forums</h1>
+    <html>
+<head>
+<title>Create a Post </title>
+</head>
+
+<body>
+<h1>Create a Post </h1>
+<form method="POST">
+{{post_details.as_p}}
+{% csrf_token %}
+<input type="submit" value="Post"/>
+</form>
+
+
+</body>
+
+</html>
 {% endblock %}

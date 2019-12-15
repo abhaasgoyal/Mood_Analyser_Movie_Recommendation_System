@@ -1,50 +1,58 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-    <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <ul class="nav navbar-nav">
-      <li> <a class= navbar-link href="{% url 'general_information:home_page' %}">Home</a></li>
-        <li>  <a class= navbar-link href="{% url 'general_information:general_information_home' %}">General Information</a></li>
-        <li> <a class= navbar-link href="{% url 'movie_details:movies_list' %}">Movies</a> </li>
-        <li>  <a class= navbar-link href="{% url 'latest_news:latest_news_home' %}">News</a></li>
-        <li>  <a class= navbar-link href="{% url 'filmstars:filmstars_list' %}">Actors</a>  </li>
-        <li>  <a class= navbar-link href="{% url 'forums:forums_home' %}">Forums</a>  </li>
-        <li> <a class= navbar-link href="{% url 'user_details:form_signup' %}">Registration</a> </li>
-        {% if user.is_authenticated %}
-        <li><a class= navbar-link href="{% url 'logout' %}">Logout</a></li>
-        {% else %}
-        <li><a class= navbar-link href="{% url 'user_details:user_login' %}">Login</a></li>
-        {% endif %}
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moodvies</title>
+    <link rel="stylesheet" href="{%static "css/style.css" %}">
+</head>
 
-      </ul>
-      </div>
+<body>
+    <div class="complete">
+    <nav>
+
+          <p> <img src="{%static "images/logo.png" %}" alt="" style = "width:164.92px;"> </p>
+        <ul>
+          <li> <a href="{% url 'general_information:home_page' %}">Home</a></li>
+            <li>  <a  href="{% url 'general_information:general_information_home' %}">General Information</a></li>
+            <li> <a  href="{% url 'movie_details:movies_list' %}">Movies</a> </li>
+            <li>  <a  href="{% url 'latest_news:latest_news_home' %}">News</a></li>
+            <li>  <a  href="{% url 'filmstars:filmstars_list' %}">Actors</a>  </li>
+            <li>  <a  href="{% url 'forums:forums_home' %}">Forums</a>  </li>
+            <li> <a  href="{% url 'user_details:form_signup' %}">Registration</a> </li>
+            {% if user.is_authenticated %}
+            <li><a  href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a  href="{% url 'user_details:user_login' %}">Login</a></li>
+            {% endif %}
+          </ul>
+        </ul>
     </nav>
-    <div class="container">
-      {% block navbar %}
-      <h1>Welcome to the home page</h1>
-      <form method="post">
-        <label for="mood">Search via mood:</label>
-        <input type="text" name="mood" placeholder="Tell us your mood">
-        <input type="submit" name="" value="Search">
+    {% block navbar %}
+    <header>
+      <h1>Find the
+          most suitable Contents
+          as per your Mood</h1>
 
-         {% csrf_token %}
+      <form action="" method="post" class="moodsearch clearfix">
+          <div class="sf">
+              <img class="mood-ico" src="{%static "css/mood.svg" %}" alt="" srcset="">
+              <input type="text" name="mood" class="mood" placeholder="Search via Mood">
+          </div>
+          <input type = "submit" class="moods" value= "Search">
+          {% csrf_token %}
+        </form>
+          <form method="post" class="moodsearch clearfix">
+          <div class="sf">
+              <img class="mood-ico" src="{%static "css/mood.svg" %}" alt="" srcset="">
+              <input type="text" name="movie_search" class="mood" placeholder="Search Movies">
+          </div>
+          <button class="movies">Search</button>
+          {% csrf_token %}
       </form>
+{% endblock %}
+</body>
 
-      <form method="post">
-        <label for="movie_search">Search for movie:</label>
-        <input type="text" name="movie_search" placeholder="Tell us the movie">
-        <input type="submit" name="" value="Search">
-
-         {% csrf_token %}
-      </form>
-  {% endblock %}
-    </div>
-
-  </body>
 </html>

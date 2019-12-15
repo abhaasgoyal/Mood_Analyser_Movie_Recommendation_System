@@ -1,21 +1,62 @@
 <!DOCTYPE html>
 {% extends "general_information/base.html" %}
 {% block navbar %}
-
+{%  load static %}
 
 
 
 {% if registered %}
 <h1>Thank you for registering</h1>
 {% else %}
+<!--css added-->
+<style>
+form {
+border: 3px solid #f1f1f1;
+background-color: transparent !important;
+width:75%;
+position:absolute;
+top: 26%;
+left: 17%;
+}
 
-    <h1>Fill the form</h1>
+.container {
+  padding: 5px;
+  margin-right: auto;
+    margin-left: auto;
+    text-decoration-color: white;
+
+}
+
+
+.btn{
+  font-weight: bold;
+     width: 230px;
+     padding: 10px 30px;
+     border-radius: 5px;
+     outline: none;
+     border: none;
+     background: blue;
+     color: white;
+     font-size: 14px;
+		}
+
+.btn:hover{
+		background-color: #fff;
+        color: #000;
+        font-size: 20px;
+		}
+
+</style>
+<form method="post">
     <div class="container">
-        <form enctype="multipart/form-data" method="POST">
+      <h3>Registration form</h3>
+
           {{user_login_details.as_p}}
           {{user_personal_details.as_p}}
 
-          <input type="submit" name="btn btn-primary" value="Submit">
+      </div>
+
+          <input type="submit" name="btn" value="Submit">
           {% csrf_token %}
         </form>
       </div>

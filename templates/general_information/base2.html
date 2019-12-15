@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <style>
+
+
+  body{
+    background-image: url("https://vignette.wikia.nocookie.net/krosmoz/images/5/50/Wiki-background/revision/latest?cb=20150914210618");
+    background-repeat: repeat-y;
+    background-position: 50% 0;
+    background-size: cover;
+transition: 0s linear;
+transition-property: background-position;
+text-decoration-color:white;
+  }
+  .search_movie {
+    padding: 16px;
+    margin-right: auto;
+      margin-left: auto;
+  }
+
+  .search_mood {
+    padding: 16px;
+    margin-right: auto;
+      margin-left: auto;
+  }
+  </style>
+  <style>
+.header {
+background-color:#00B9ED;
+height:50px;
+border-bottom:0px;
+padding-left:auto;
+padding-right:auto;
+width:100%;
+text-decoration-color:white;
+}
+p{
+  color: lightgrey;
+}
+h1{color: lightgrey;}
+h2{color: lightgrey;}
+h3{color: lightgrey;}
+h4{color: lightgrey;}
+h5{color: lightgrey;}
+h6{color: lightgrey;}
+
+
+.label {
+  color: white;
+  padding: 8px;
+}
+
+</style>
+
+
+
+<body>
+    <header>
+    <div class = "container">
+      <div class="navbar navbar-default">
+      <div class="navbar-inner">
+     <div class="container">
+       <nav class="navbar navbar-expand-lg navbar-lightblue bg-transparent">
+        <ul class="nav navbar-nav">
+      <li> <a class= "nav-item nav-link" href="{% url 'general_information:home_page' %}">Home</a></li>
+        <li>  <a class= "nav-item nav-link" href="{% url 'general_information:general_information_home' %}">General Information</a></li>
+        <li> <a class= "nav-item nav-link" href="{% url 'movie_details:movies_list' %}">Movies</a> </li>
+        <li>  <a class= "nav-item nav-link" href="{% url 'latest_news:latest_news_home' %}">News</a></li>
+        <li>  <a class= "nav-item nav-link" href="{% url 'filmstars:filmstars_list' %}">Actors</a>  </li>
+        <li>  <a class= "nav-item nav-link" href="{% url 'forums:forums_home' %}">Forums</a>  </li>
+        <li> <a class= "nav-item nav-link" href="{% url 'user_details:form_signup' %}">Registration</a> </li>
+        {% if user.is_authenticated %}
+        <li><a class= "nav-item nav-link" href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li><a class= "nav-item nav-link" href="{% url 'user_details:user_login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+      </div>
+      </div>
+    </div>
+  </div>
+  </header>
+
+    <div class="search_mood">
+      {% block navbar %}
+      <form method="post">
+        <div class="form-group">
+          <div class="label">
+        <label for="mood">Search via mood:</label>
+        <input type="text" name="mood" class="input" placeholder="Tell us your mood">
+        <input type="submit" name="" class="btn btn-light btn-sm"" value="Search">
+          </div>
+        </div>
+         {% csrf_token %}
+      </form>
+    </div>
+    <div class="search_movie" >
+      <form method="post">
+        <div class="form-group">
+            <div class="label">
+        <label for="movie_search">Search for movie:</label>
+        <input type="text" name="movie_search" class="input"   placeholder="Tell us the movie">
+
+        <input type="submit" name="" class="btn btn-light btn-sm"" value="Search">
+      </div>
+    </div>
+         {% csrf_token %}
+      </form>
+  {% endblock %}
+    </div>
+
+  </body>
+</html>

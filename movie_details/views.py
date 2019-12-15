@@ -2,12 +2,12 @@ from django.shortcuts import render
 from django.views.generic import (View,TemplateView,ListView,
                                   DetailView,CreateView,UpdateView,DeleteView)
 from movie_details.models import movie_details
-# Create your views here.
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
 import configformovies
-
+import requests
+import json
 # Create your views here.
 def home(request):
     return HttpResponse('<h1>Movie Details</h1>')
@@ -33,6 +33,17 @@ class MovieNormalSearch(ListView):
         try:
             ctx = super(MovieNormalSearch, self).get_context_data(**kwargs)
             ctx['movies'] = movie_details.objects.filter(movie_name__icontains = configformovies.search_string).values('movie_name','movie_id')
+            length = len(ctx['movies'])
+            print(length)
+            for i in range(length):
+                req = requests.get("https://api.themoviedb.org/3/search/movie?api_key=535daf0d97eaf21871601b9e09374b6d&language=en-US&page=1&include_adult=false",params = {'query':ctx['movies'][i]['movie_name']})
+                y = json.loads(req.text)
+                print(len(y['results']))
+                if len(y['results'])>0:
+                    ctx['movies'][i]['image'] = y['results'][0]['poster_path']
+                else:
+                    let = []
+            print(y)
             return ctx
         except:
             print("error.. go to home page and try again!")
@@ -52,6 +63,7 @@ class MovieMoodSearch(ListView):
         ctx = super(MovieMoodSearch, self).get_context_data(**kwargs)
         x= movie_details.objects.values('genre','movie_name','movie_id')
         list = []
+
         if configformovies.search_mood_score > 0.5:
             dict ={"anger": "War" if configformovies.search_mood_score > 0.72 else "Action",
                     "fear": "Thriller" if configformovies.search_mood_score > 0.67 else "Drama",
@@ -69,4 +81,13 @@ class MovieMoodSearch(ListView):
                     list.append(share)
 
         ctx['movies'] = list
+        length = len(ctx['movies'])
+        for i in range(length):
+            req = requests.get("https://api.themoviedb.org/3/search/movie?api_key=535daf0d97eaf21871601b9e09374b6d&language=en-US&page=1&include_adult=false",params = {'query':list[i]['movie_name']})
+            y = json.loads(req.text)
+            print(len(y['results']))
+            if len(y['results'])>0:
+                ctx['movies'][i]['image'] = y['results'][0]['poster_path']
+            else:
+                let = []
         return ctx

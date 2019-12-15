@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+nav p {
+    float: left;
+    padding-left: 56px;
+    margin-top: 37px;
+
+    font-family: Futura;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+}
+
+li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul {
+    margin-top: 37px;
+    color: white;
+    float: right;
+    list-style: none;
+    /* margin-right: 60px; */
+}
+
+nav li {
+    font-family: Gordita;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    float: left;
+    margin-right: 60px;
+}
+
+.active {
+    border-bottom: 2px solid #FFFFFF;
+    ;
+    padding-bottom: 5px;
+}
+
+nav li:hover {
+    border-bottom: 2px solid #FFFFFF;
+    padding-bottom: 5px;
+}
+
+body {
+
+    background:
+        /* top, transparent red, faked with gradient */
+        linear-gradient(rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.2)),
+        /* bottom, image */
+        url(image.jpg);
+    background-size: 100vw;
+    background-position-y: -710px;
+}
+
+h1 {
+    font-family: Gordita;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 52px;
+    width: 537px;
+    color: #FFFFFF;
+}
+
+header {
+    position: absolute;
+    left: 146px;
+    top: 230px;
+}
+
+.mood {
+    width: 401.89px;
+    height: 60px;
+    border: none;
+    outline: none;
+    padding-right: 60px;
+    background: #FFFFFF;
+    box-shadow: 0px 5.76678px 12.3574px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-family: Gordita;
+    padding-left: 60px;
+}
+
+
+.mood-ico {
+    position: absolute;
+    z-index: 99;
+    transform: translateY(24px);
+    color: #fff;
+    left: 24px;
+    -webkit-transform: translateY(24px);
+    -moz-transform: translateY(24px);
+    -ms-transform: translateY(24px);
+    -o-transform: translateY(24px);
+}
+
+.moods,
+.movies {
+    float: left;
+    height: 60px;
+    width: 134.97px;
+
+    background: linear-gradient(336.28deg, #5172BE 0%, #C26290 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(250px);
+    /* Note: backdrop-filter has minimal browser support */
+    outline: none;
+    font-family: Gordita;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14.5262px;
+    color: #FFFFFF;
+    border: none;
+}
+
+.movies {
+    background: linear-gradient(293.7deg, #000000 -0.08%, #A2A6B8 100%);
+}
+
+.clearfix::after {
+    overflow: auto;
+}
+
+.sf {
+    float: left;
+}
+
+.moodsearch {
+    padding-bottom: 80px;
+}

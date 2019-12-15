@@ -2,17 +2,25 @@
 {% extends "general_information/base.html" %}
 {% load staticfiles %}
 {% block navbar %}
-<h1>kfsldjfd</h1>
+<h1>General Information </h1>
     <img src="{%static "images/er.png" %}" alt="Uh oh">
     <div class="patching">
       {% if patch_notes %}
       <table>
         <thead>
           <th>Stuff1</th>
+          <th>Stuff2</th>
+          <th>Stuff3</th>
+          <th>Stuff4</th>
+          <th>Stuff5</th>
         </thead>
         {% for acc in patch_notes %}
         <tr>
           <td>{{ acc.version_id}}</td>
+          <td> {{acc.patch_notes}}</td>
+          <td>{{acc.number_of_users}}</td>
+          <td>{{acc.copyright_notice}}</td>
+          <td>{{acc.t_n_c}}</td>
         </tr>
         {% endfor %}
       </table>
